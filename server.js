@@ -7,6 +7,7 @@ var session = require('express-session');
 var passport = require('passport');
 
 require('dotenv').config();
+require('./config/database');
 // configure passport middleware
 require('./config/passport');
 
@@ -32,6 +33,11 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
