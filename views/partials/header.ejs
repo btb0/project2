@@ -10,10 +10,15 @@
 <body>
     <nav>
         <a href="/">Home</a>
+            |
         <a href="/recipes">Recipes</a>
+            |
         <% if (user) {  %>
+            <a href="/recipes/new">Add Recipe</a>
+                |
             <a href="/logout">Log out</a>
         <% } else { %>
             <a href="/auth/google">Log in</a>
         <% } %>
     </nav>
+    <main>

@@ -1,8 +1,64 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;;
+  /* outline: 1px solid red; */
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: lightgray;
+  padding: 0 60px 0 30px;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 10vh 1fr;
+  grid-template-areas:
+    "nav"
+    "main"
 }
 
 a {
   color: #00B7FF;
+}
+/* Universal Flexbox Center Class */
+.flex-cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Universal Flexbox Center Column Class */
+.flex-cntr-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-blue {
+  background-color: dodgerblue;
+  color: white;
+  font-size: 18px;
+  border-radius: 50px;
+  padding: 1.5vmin 6vmin;
+}
+
+/* NEW RECIPE SECTION */
+#new-recipe {
+  border: 1px solid black;
+  height: 60vmin;
+  width: 75vw;
+  margin: 12vh auto 0 auto;
+  border-radius: 45px;
+}
+
+#new-recipe-btn {
+  margin: 6vmin auto;
+  display: block;
 }

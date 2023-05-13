@@ -41,6 +41,7 @@ const recipeSchema = new Schema({
         type: Number,
         min: 0
     },
+    picture: String,
     reviews: [reviewSchema],
     user: {
         type: Schema.Types.ObjectId,
