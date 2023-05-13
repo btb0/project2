@@ -26,6 +26,7 @@ body {
 a {
   color: #00B7FF;
 }
+
 /* Universal Flexbox Center Class */
 .flex-cntr {
   display: flex;
@@ -61,4 +62,16 @@ a {
 #new-recipe-btn {
   margin: 6vmin auto;
   display: block;
+}
+
+#recipe-preview-container {
+  margin: 6vmin 1.6vmin 3vmin 5vmin;
+  display: inline-block;
+}
+#recipe-preview-container img {
+  height: 35vmin;
+  width: 25vmin;
+  border-radius: 40px;
+  object-fit: cover;
+  border: 1px solid black;
 }

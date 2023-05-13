@@ -2,7 +2,9 @@
 
 <section>
     <% recipes.forEach(function(r) { %>
-        <div>r.picture</div>
+        <div id="recipe-preview-container">
+            <img src="<%= r.picture %>" alt="food">
+        </div>
     <% }) %>
 </section>
 
