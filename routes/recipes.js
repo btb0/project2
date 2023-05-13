@@ -7,8 +7,11 @@ const recipesCtrl = require('../controllers/recipes')
 
 // GET /recipes
 router.get('/', recipesCtrl.index);
-// Get /recipes/new
+// GET /recipes/new
 router.get('/new', recipesCtrl.new);
+// POST /recipes
+router.post('/', recipesCtrl.create)
+
 
 
 module.exports = router;
