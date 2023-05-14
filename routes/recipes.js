@@ -9,6 +9,8 @@ const recipesCtrl = require('../controllers/recipes')
 router.get('/', recipesCtrl.index);
 // GET /recipes/new
 router.get('/new', recipesCtrl.new);
+// GET /recipes/:id
+router.get('/:id', recipesCtrl.show);
 // POST /recipes
 router.post('/', recipesCtrl.create)
 

@@ -3,7 +3,8 @@ const Recipe = require('../models/recipe')
 module.exports = {
     index,
     new: newRecipe,
-    create
+    create,
+    show
 }
 
 async function index(req, res) {
@@ -28,4 +29,9 @@ async function create(req, res) {
         console.log(err);
         res.render('recipes/new', { errorMsg: 'failed to add recipe ):'});
     }
+}
+
+async function show(req, res) {
+    const recipe = await Recipe.findById(req.params.id);
+    res.render('recipes/show', { title: 'Recipe Details', recipe })
 }

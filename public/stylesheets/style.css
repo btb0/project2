@@ -67,11 +67,13 @@ a {
 #recipe-preview-container {
   margin: 6vmin 1.6vmin 3vmin 5vmin;
   display: inline-block;
+  height: 35vmin;
+  border-radius: 40px;
 }
+
 #recipe-preview-container img {
   height: 35vmin;
   width: 25vmin;
   border-radius: 40px;
   object-fit: cover;
-  border: 1px solid black;
 }

@@ -3,7 +3,7 @@
 <section>
     <% recipes.forEach(function(r) { %>
         <div id="recipe-preview-container">
-            <img src="<%= r.picture %>" alt="food">
+            <a href="/recipes/<%= r._id %>"><img src="<%= r.picture %>" alt="<%= r.name %>"></a>
         </div>
     <% }) %>
 </section>
