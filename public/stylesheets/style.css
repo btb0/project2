@@ -50,8 +50,8 @@ a {
   padding: 1.5vmin 6vmin;
 }
 
-/* NEW RECIPE SECTION */
-#new-recipe {
+/* NEW RECIPE / EDIT RECIPE SECTION */
+#new-recipe, #edit-recipe {
   border: 1px solid black;
   height: 60vmin;
   width: 75vw;
@@ -59,7 +59,7 @@ a {
   border-radius: 45px;
 }
 
-#new-recipe-btn {
+#new-recipe-btn, #edit-recipe-btn {
   margin: 6vmin auto;
   display: block;
 }

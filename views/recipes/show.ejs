@@ -22,22 +22,25 @@
 <h4><%= recipe.userName %></h4>
 
 <!-- ADD REVIEW FORM -->
-<h3>Leave a Review:</h3>
-<form action="/recipes/<%= recipe.id %>/reviews" method="POST">
-    <textarea name="content" cols="60" rows="10"></textarea>
-    <label>Rating:
-        <select name="rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5" selected>5</option>
-        </select>
-    </label>
-    <button type="submit">Submit Review</button>
-</form>
+<% if (user) { %>
+    <h3>Leave a Review:</h3>
+    <form action="/recipes/<%= recipe.id %>/reviews" method="POST">
+        <textarea name="content" cols="60" rows="10"></textarea>
+        <label>Rating:
+            <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected>5</option>
+            </select>
+        </label>
+        <button type="submit">Submit Review</button>
+    </form>
+<% } %>
 
 <!-- LIST OF ALL REVIEWS -->
+<h3>Reviews:</h3>
 <table>
     <tr>
         <th>User:</th>
@@ -54,5 +57,7 @@
             </tr>
         <% }) %>
 </table>
+
+<a href="/recipes/<%= recipe.id %>/edit">Edit</a>
 
 <%- include('../partials/footer') %>

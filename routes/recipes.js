@@ -11,8 +11,12 @@ router.get('/', recipesCtrl.index);
 router.get('/new', recipesCtrl.new);
 // GET /recipes/:id
 router.get('/:id', recipesCtrl.show);
+// GET /recipes/:id/edit
+router.get('/:id/edit', recipesCtrl.edit);
+// PUT /recipes/:id
+router.put('/:id', recipesCtrl.update);
 // POST /recipes
-router.post('/', recipesCtrl.create)
+router.post('/', recipesCtrl.create);
 
 
 
