@@ -21,4 +21,38 @@
 <img src="<%= recipe.userAvatar %>" alt="Uploader">
 <h4><%= recipe.userName %></h4>
 
+<!-- ADD REVIEW FORM -->
+<h3>Leave a Review:</h3>
+<form action="/recipes/<%= recipe.id %>/reviews" method="POST">
+    <textarea name="content" cols="60" rows="10"></textarea>
+    <label>Rating:
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected>5</option>
+        </select>
+    </label>
+    <button type="submit">Submit Review</button>
+</form>
+
+<!-- LIST OF ALL REVIEWS -->
+<table>
+    <tr>
+        <th>User:</th>
+        <th>Date:</th>
+        <th>Review:</th>
+        <th>Rating:</th>
+    </tr>
+        <% recipe.reviews.forEach(function(review) { %>
+            <tr>
+                <td><%= review.userName %></td>
+                <td><%= review.createdAt.toLocaleDateString() %></td>
+                <td><%= review.content %></td>
+                <td><%= review.rating %></td>
+            </tr>
+        <% }) %>
+</table>
+
 <%- include('../partials/footer') %>
