@@ -47,6 +47,7 @@
         <th>Date:</th>
         <th>Review:</th>
         <th>Rating:</th>
+        <th></th>
     </tr>
         <% recipe.reviews.forEach(function(review) { %>
             <tr>
@@ -54,6 +55,14 @@
                 <td><%= review.createdAt.toLocaleDateString() %></td>
                 <td><%= review.content %></td>
                 <td><%= review.rating %></td>
+                <td>
+                    <!-- Does not display delete button if the review does not belong to the signed in user -->
+                    <% if (user?._id.equals(review.user)) { %>
+                        <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST">
+                            <button type="submit">X</button>
+                        </form>
+                    <% } %>
+                </td>
             </tr>
         <% }) %>
 </table>

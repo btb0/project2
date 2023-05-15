@@ -48,6 +48,7 @@ async function edit(req, res) {
 async function update(req, res) {
     const recipe = await Recipe.findById(req.params.id);
     try {
+        // recipe is the target, req.body is the source (what was edited)
         Object.assign(recipe, req.body);
         await recipe.save();
     } catch (err) {

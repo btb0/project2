@@ -7,5 +7,7 @@ const reviewsCtrl = require('../controllers/reviews');
 
 // POST /recipes/:id/reviews
 router.post('/recipes/:id/reviews', ensureLoggedIn, reviewsCtrl.create);
+// DELETE /reviews/:id
+router.delete('/reviews/:id', ensureLoggedIn, reviewsCtrl.delete);
 
 module.exports = router;
