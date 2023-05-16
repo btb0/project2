@@ -6,7 +6,8 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
+    delete: deleteRecipe
 }
 
 async function index(req, res) {
@@ -56,4 +57,9 @@ async function update(req, res) {
         res.render('recipes/show', { errorMsg: 'failed to edit recipe ):'});
     }
     res.redirect(`/recipes/${recipe._id}`)
+}
+
+async function deleteRecipe(req, res) {
+    const recipe = await Recipe.findByIdAndDelete(req.params.id);
+    res.redirect('/recipes')
 }

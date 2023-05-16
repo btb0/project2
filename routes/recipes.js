@@ -8,16 +8,17 @@ const recipesCtrl = require('../controllers/recipes')
 // GET /recipes
 router.get('/', recipesCtrl.index);
 // GET /recipes/new
-router.get('/new', recipesCtrl.new);
+router.get('/new', ensureLoggedIn, recipesCtrl.new);
 // GET /recipes/:id
 router.get('/:id', recipesCtrl.show);
 // GET /recipes/:id/edit
-router.get('/:id/edit', recipesCtrl.edit);
+router.get('/:id/edit', ensureLoggedIn, recipesCtrl.edit);
 // PUT /recipes/:id
-router.put('/:id', recipesCtrl.update);
+router.put('/:id', ensureLoggedIn, recipesCtrl.update);
 // POST /recipes
-router.post('/', recipesCtrl.create);
-
+router.post('/', ensureLoggedIn, recipesCtrl.create);
+// DELETE /recipes/:id
+router.delete('/:id', ensureLoggedIn, recipesCtrl.delete);
 
 
 module.exports = router;

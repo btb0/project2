@@ -68,5 +68,9 @@
 </table>
 
 <a href="/recipes/<%= recipe.id %>/edit">Edit</a>
+ |
+<form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+    <button type="submit">delete</button>
+</form>
 
 <%- include('../partials/footer') %>
