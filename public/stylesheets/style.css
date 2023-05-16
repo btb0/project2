@@ -1,21 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300&display=swap');
+
 * {
   box-sizing: border-box;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;;
-  /* outline: 1px solid red; */
+  font-family: 'Cormorant', serif;
+  /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
+  /* border: 1px solid red; */
+  margin: 0;
 }
 
-nav {
-  grid-area: nav;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: lightgray;
-  padding: 0 60px 0 30px;
+:root {
+  --main-dark: #83756Bff;
+  --main-light: #DCDAD5ff;
 }
 
 body {
   margin: 0;
-  height: 100vh;
+  /* overflow-x: hidden;  */
   display: grid;
   grid-template-rows: 10vh 1fr;
   grid-template-areas:
@@ -23,8 +23,126 @@ body {
     "main"
 }
 
-a {
-  color: #00B7FF;
+/* -==== NAV BAR ====- */
+nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  background-color: white;
+  padding: 0 60px 0 30px;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 2.1vmin;
+  text-decoration: none;
+  margin: 0 2.5vmin;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: .75px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before {
+  transform: scaleX(1);
+}
+
+/* -==== Landing Page ====- */
+.home-section {
+  /* outline: 1px solid red; */
+  height: 84vmin;
+  margin-top: 2.75vmin;
+  display: flex;
+}
+
+#landing-pic {
+  height: 84vmin;
+}
+
+.home-sub-section {
+  display: flex;
+  height: 81vmin;
+  justify-content: flex-end;
+  /* border: 1px solid black; */
+  /* margin-left: 4.75vmin; */
+  width: 55vw;
+}
+
+.left-photo-section {
+  display: flex;
+  height: 81vmin;
+}
+/* --Landing Divs-- */
+#panel-1 {
+  width: 12.42vw;
+  background-color: var(--main-dark);
+}
+#panel-2 {
+  width: 3vw;
+  background-color: var(--main-light);
+}
+#panel-3 {
+  display: flex;
+  align-items: center;
+  width: 40vw;
+  background-color: var(--main-light);
+}
+#panel-4 {
+  width: 0.3vw;
+  background-color: var(--main-dark);
+}
+#panel-5 {
+  width: 15vw;
+  background-color: var(--main-light);
+}
+
+.landing-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2vw;
+  height: 25vh;
+  /* border: 1px solid black; */
+}
+
+.landing-text h1 {
+  font-size: 5vmin;
+}
+
+.landing-text p {
+  margin: 1vmin 0;
+  line-height: 1.6;
+}
+
+.landing-btn {
+  border: 2px solid var(--main-dark);
+  background-color: var(--main-light);
+  color: var(--main-dark);
+  font-size: 2vmin;
+  padding: 5px;
+  width: 15vmin;
+}
+
+.white-overlay {
+  position: relative;
+  /* border: 1px solid #000; */
+  width: 100vw;
+  height: 10vh;
+  margin-top: -6.8vh;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 /* Universal Flexbox Center Class */
@@ -52,7 +170,7 @@ a {
 
 /* NEW RECIPE / EDIT RECIPE SECTION */
 #new-recipe, #edit-recipe {
-  border: 1px solid black;
+  border: 1px solid #000;
   height: 60vmin;
   width: 75vw;
   margin: 12vh auto 0 auto;
@@ -65,7 +183,8 @@ a {
 }
 
 #recipe-preview-container {
-  margin: 6vmin 1.6vmin 3vmin 5vmin;
+  box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.6);
+  margin: 6vmin 1.6vmin 3vmin 6vmin;
   display: inline-block;
   height: 35vmin;
   border-radius: 40px;
@@ -76,4 +195,14 @@ a {
   width: 25vmin;
   border-radius: 40px;
   object-fit: cover;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+#recipes-idx-container {
+  width: 170vmin;
+  margin: 0 auto;
+}
+
+a {
+  color: #00B7FF;
 }

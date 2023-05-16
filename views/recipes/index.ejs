@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
+<h1>All Recipes</h1>
 
-<section>
+<section id="recipes-idx-container">
     <% recipes.forEach(function(r) { %>
         <div id="recipe-preview-container">
             <a href="/recipes/<%= r._id %>"><img src="<%= r.picture %>" alt="<%= r.name %>"></a>

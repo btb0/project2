@@ -29,7 +29,7 @@ async function deleteReview(req, res) {
     try {
         recipe.reviews.remove(req.params.id);
         await recipe.save();
-        res.redirect(`/recipes/${recipe.id}`) 
+        res.redirect(`/recipes/${recipe.id}`); 
     } catch (err) {
         console.log(err);
         res.render('recipes/show', { errorMsg: 'Failed to delete review ):' });

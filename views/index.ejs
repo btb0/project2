@@ -1,7 +1,24 @@
 <%- include('./partials/header') %>
 
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<section class="home-section">
+    <div class="left-photo-section">
+        <div id="panel-1"></div>
+        <div id="panel-2"></div>
+    </div>
+    <img id="landing-pic" src="/images/pancakes-home.jpg" alt="pancakes">
+    <div class="home-sub-section">
+        <div id="panel-3">
+            <div class="landing-text">
+                <h1>All your favourite <br> recipes saved in <br> one place</h1>
+                <p>Browse through all the recipes uploaded by our users, or upload your own! <br> Add them to your collection with just the click of a button.</p>
+                <button class="landing-btn">Find Recipes</button>
+            </div>
+        </div>
+        <div id="panel-4"></div>
+        <div id="panel-5"></div>
+    </div>
+</section>
+<div class="white-overlay"></div>
 
 <%- include('./partials/footer') %>
 
