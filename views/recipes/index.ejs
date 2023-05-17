@@ -1,10 +1,18 @@
 <%- include('../partials/header') %>
-<h1>All Recipes</h1>
 
-<section id="recipes-idx-container">
+<h1 class="all-recipes-title"><%= title %></h1>
+
+<section class="recipes-idx-container">
     <% recipes.forEach(function(r) { %>
-        <div id="recipe-preview-container">
-            <a href="/recipes/<%= r._id %>"><img src="<%= r.picture %>" alt="<%= r.name %>"></a>
+        <div class="display-container">
+            <figure class="recipe-display">
+                <div class="opacity-layer">
+                    <img id="food-img" src="<%= r.picture %>" alt="<%= r.name %>">
+                    <!-- <figcaption class="recipe-caption"> -->
+                    <h3>WORDS</h3>
+                    <!-- </figcaption> -->
+                </div>
+            </figure>
         </div>
     <% }) %>
 </section>
