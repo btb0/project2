@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 const recipesCtrl = require('../controllers/recipes')
+const multer = require('multer');
+const upload = multer({ dest: 'public/uploads/' });
 
 // All paths start with '/recipes'
 
@@ -16,7 +18,7 @@ router.get('/:id/edit', ensureLoggedIn, recipesCtrl.edit);
 // PUT /recipes/:id
 router.put('/:id', ensureLoggedIn, recipesCtrl.update);
 // POST /recipes
-router.post('/', ensureLoggedIn, recipesCtrl.create);
+router.post('/', ensureLoggedIn, upload.single('picture'), recipesCtrl.create);
 // DELETE /recipes/:id
 router.delete('/:id', ensureLoggedIn, recipesCtrl.delete);
 

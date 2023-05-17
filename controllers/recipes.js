@@ -1,4 +1,4 @@
-const Recipe = require('../models/recipe')
+const Recipe = require('../models/recipe');
 
 module.exports = {
     index,
@@ -12,7 +12,7 @@ module.exports = {
 
 async function index(req, res) {
     const recipes = await Recipe.find({});
-    res.render('recipes/index', { title: 'Recipes', recipes })
+    res.render('recipes/index', { title: 'Recipes', recipes });
 }
 
 function newRecipe(req, res) {
@@ -25,9 +25,10 @@ async function create(req, res) {
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
-
+        // Image Upload
+        req.body.picture = req.file.path.replace('public/', '');
         Recipe.create(req.body);
-        res.redirect('recipes') // CHANGE TO REDIRECT TO RECIPE DETAILS PAGE ONCE THAT IS ADDED
+        res.redirect('recipes'); // CHANGE TO REDIRECT TO RECIPE DETAILS PAGE ONCE THAT IS ADDED
     } catch (err) {
         console.log(err);
         res.render('recipes/new', { errorMsg: 'failed to add recipe ):'});
@@ -37,13 +38,13 @@ async function create(req, res) {
 async function show(req, res) {
     const recipe = await Recipe.findById(req.params.id);
     // displays the property values of the specific recipe
-    res.render('recipes/show', { title: 'Recipe Details', recipe })
+    res.render('recipes/show', { title: 'Recipe Details', recipe });
 }
 
 async function edit(req, res) {
     const recipe = await Recipe.findById(req.params.id);
     // displays edit page with inputs prefilled to current property values
-    res.render('recipes/edit', { recipe })
+    res.render('recipes/edit', { recipe });
 }
 
 async function update(req, res) {
@@ -53,13 +54,13 @@ async function update(req, res) {
         Object.assign(recipe, req.body);
         await recipe.save();
     } catch (err) {
-        console.log(err)
+        console.log(err);
         res.render('recipes/show', { errorMsg: 'failed to edit recipe ):'});
     }
-    res.redirect(`/recipes/${recipe._id}`)
+    res.redirect(`/recipes/${recipe._id}`);
 }
 
 async function deleteRecipe(req, res) {
     const recipe = await Recipe.findByIdAndDelete(req.params.id);
-    res.redirect('/recipes')
+    res.redirect('/recipes');
 }
