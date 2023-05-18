@@ -1,4 +1,6 @@
 const Recipe = require('../models/recipe');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
     index,
@@ -27,7 +29,21 @@ async function create(req, res) {
         req.body.userAvatar = req.user.avatar;
         // Image Upload
         req.body.picture = req.file.path.replace('public/', '');
-        Recipe.create(req.body);
+        // Removes controllers/ from absolute path
+        const removeCtrl = __dirname.replace('controllers', '');
+        const removeSpaces = req.body.name.replace(/\s+/g, '');
+        const oldPath = path.join(removeCtrl, 'public', req.body.picture);
+        const newPath = path.join(removeCtrl, 'public', removeSpaces)
+        // Renames image file in /uploads
+        fs.renameSync(oldPath, newPath, (err) => {
+            if (err) {
+                console.log('Error renaming image:', err);
+            } else {
+                console.log('Image renamed successfully!');
+            }
+        });
+        req.body.picture = newPath.split('/')[newPath.split('/').length - 1];
+        await Recipe.create(req.body);
         res.redirect('recipes'); // CHANGE TO REDIRECT TO RECIPE DETAILS PAGE ONCE THAT IS ADDED
     } catch (err) {
         console.log(err);
@@ -62,5 +78,15 @@ async function update(req, res) {
 
 async function deleteRecipe(req, res) {
     const recipe = await Recipe.findByIdAndDelete(req.params.id);
+    // Removes controllers/ from absolute path
+    const newPath = __dirname.replace('controllers', '');
+    // Deletes the image assigned to recipe.picture
+    fs.unlink(path.join(newPath, 'public', recipe.picture), (err) => {
+        if (err) {
+            console.log('Error deleting image:', err);
+        } else {
+            console.log('Image deleted successfully!');
+        }
+    });
     res.redirect('/recipes');
 }

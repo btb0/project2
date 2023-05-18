@@ -205,30 +205,12 @@ nav {
 	transition: .3s ease-in-out;
 }
 
-/* .opacity-layer h3 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: black;
-  color: white;
-  margin-bottom: 5px;
-  font-family: sans-serif;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: visibility 0s, opacity 0.5s linear; 
-  transition: visibility 0s, opacity 0.5s linear;
-} */
-
 #food-img:hover {
   opacity: .4;
 }
 
-/* NEW RECIPE / EDIT RECIPE SECTION */
-#new-recipe, #edit-recipe {
-  border: 1px solid #000;
-  height: 60vmin;
-  width: 75vw;
-  margin: 12vh auto 0 auto;
-  border-radius: 45px;
-}
+/* -====== NEW RECIPE PAGE ======- */
 
+#new-recipe {
+  background-color: var(--main-light);
+}

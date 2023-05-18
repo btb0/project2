@@ -1,7 +1,13 @@
 <%- include('../partials/header') %>
 
 <section id="edit-recipe">
-    <form class="flex-cntr-col" id="edit-recipe-form" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+    <form 
+        class="flex-cntr-col" 
+        id="edit-recipe-form" 
+        action="/recipes/<%= recipe._id %>?_method=PUT" 
+        enctype="multipart/form-data" 
+        method="POST"
+        >
         <label>Recipe Name:
             <input type="text" required name="name" value="<%= recipe.name %>">
         </label>
@@ -17,8 +23,8 @@
         <label>Cook Time:
             <input type="number" required name="cookTime" value="<%= recipe.cookTime %>">
         </label>
-        <label>Image Link:
-            <input type="text" required name="picture" value="<%= recipe.picture %>">
+        <label>Image:
+            <input type="file" required name="picture" value="<%= recipe.picture %>">
         </label>
     </form>
 </section>

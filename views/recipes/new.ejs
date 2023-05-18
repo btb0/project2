@@ -1,5 +1,7 @@
 <%- include('../partials/header') %>
 
+<h1 class="all-recipes-title"><%= title %></h1>
+
 <section id="new-recipe">
     <form 
         class="flex-cntr-col" 
@@ -8,9 +10,19 @@
         enctype="multipart/form-data" 
         method="POST"
     >
-        <label>Recipe Name:
+        <div class="input-container">
+            <input 
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="off"
+            placeholder=" "
+            class="form-input"
+            >
+        </div>
+        <!-- <label>Recipe Name:
             <input type="text" required name="name">
-        </label>
+        </label> -->
         <label>Ingredients:
             <input type="text" required name="ingredients">
         </label>
@@ -23,9 +35,6 @@
         <label>Cook Time:
             <input type="number" required name="cookTime">
         </label>
-        <!-- <label>Image Link:
-            <input type="text" required name="picture">
-        </label> -->
         <label>
             Image:
             <input type="file" required name="picture">
