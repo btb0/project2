@@ -23,6 +23,7 @@ function newRecipe(req, res) {
 
 async function create(req, res) {
     try {
+        console.log(req.body)
         // Gather User Information
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
@@ -34,8 +35,6 @@ async function create(req, res) {
         const removeSpaces = req.body.name.replace(/\s+/g, '');
         const oldPath = path.join(removeCtrl, 'public', req.body.picture);
         const newPath = path.join(removeCtrl, 'public', 'uploads', removeSpaces)
-        console.log(oldPath)
-        console.log(newPath)
         // Renames image file in /uploads
         fs.renameSync(oldPath, newPath, (err) => {
             if (err) {
@@ -64,19 +63,31 @@ async function edit(req, res) {
     // displays edit page with inputs prefilled to current property values
     res.render('recipes/edit', { title: 'Edit Recipe', recipe });
 }
-//findbyidandupdate
+
 async function update(req, res) {
-    const recipe = await Recipe.findById(req.params.id);
     try {
-        // recipe is the target, req.body is the source (what was edited)
-        Object.assign(recipe, req.body);
-        await recipe.save();
+        console.log(req.body)
+        const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        console.log(recipe)
+        res.redirect(`/recipes/${recipe._id}`);
     } catch (err) {
         console.log(err);
         res.render('recipes/show', { errorMsg: 'failed to edit recipe ):'});
     }
-    res.redirect(`/recipes/${recipe._id}`);
 }
+
+// async function update(req, res) {
+//     const recipe = await Recipe.findById(req.params.id);
+//     try {
+//         // recipe is the target, req.body is the source (what was edited)
+//         Object.assign(recipe, req.body);
+//         await recipe.save();
+//     } catch (err) {
+//         console.log(err);
+//         res.render('recipes/show', { errorMsg: 'failed to edit recipe ):'});
+//     }
+//     res.redirect(`/recipes/${recipe._id}`);
+// }
 
 async function deleteRecipe(req, res) {
     const recipe = await Recipe.findByIdAndDelete(req.params.id);

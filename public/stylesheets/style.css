@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
 * {
   box-sizing: border-box;
-  font-family: 'Cormorant', serif;
+  /* font-family: 'Cormorant', serif; */
+  font-family: 'EB Garamond', serif;
   /* font-family: 'Bitter', serif; */
   /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
   /* border: 1px solid red; */
@@ -191,7 +193,7 @@ nav {
 .display-container {
   display: inline-block;
   box-shadow : 3px 3px 5px 0px rgba(0,0,0,0.5);
-  height: 360px;
+  height: 390px;
   width: 360px;
   margin: 3vmin;
 }
@@ -208,6 +210,10 @@ nav {
   height: 325px;
   width: 325px;
   background-color: #000;
+}
+
+.opacity-layer h3 {
+  margin-top: 7px;
 }
 
 #food-img {

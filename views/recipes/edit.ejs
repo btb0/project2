@@ -10,13 +10,13 @@
                 id="edit-recipe-form" 
                 class="flex-cntr-col"
                 action="/recipes/<%= recipe._id %>?_method=PUT" 
-                enctype="multipart/form-data" 
                 method="POST"
             >
                 <div class="input-container">
                     <input 
                     type="text"
                     id="name"
+                    maxlength="46"
                     name="name"
                     autocomplete="off"
                     placeholder=" "
@@ -83,7 +83,7 @@
                 >
                     <label class="input-label" for="cook-time">Cook Time</label>
                 </div>
-                <br><br>
+                <!-- <br><br>
                 <label>
                     Image:
                     <input 
@@ -91,14 +91,13 @@
                         required name="picture"
                         value="<%= recipe.picture %>"
                     >
-                </label>
+                </label> -->
+                <button 
+                    type="submit" 
+                    id="edit-recipe-btn" 
+                    >Edit Recipe 
+                </button>
             </form>
-            <button 
-                type="submit" 
-                form="edit-recipe-form" 
-                id="edit-recipe-btn" 
-                >Edit Recipe 
-            </button>
         </div>
     </section>
 </div>
