@@ -1,7 +1,9 @@
 <%- include('../partials/header') %>
+<!-- The repetitive <br>'s and <hr>'s are temporary for spacing. Will fix later -->
+
 <h1 id="new-recipe-title" class="all-recipes-title"><%= title %></h1>
 <!-- <div class="new-recipe-panel1"></div> -->
-<section id="new-recipe">  <!--class="flex-cntr-col"   --- ADD THIS TO BELOW FORM IF RESET-->
+<section id="new-recipe"> 
     <div class="content-container">
         <form 
             id="new-recipe-form" 
@@ -22,6 +24,7 @@
             >
                 <label class="input-label" for="name">Recipe Name</label>
             </div>
+            <hr><hr><hr><hr><hr><hr>
             <div class="input-container">
                 <textarea 
                 type="text"
@@ -35,6 +38,7 @@
             ></textarea>
                 <label class="input-label" for="ingredients">Ingredients</label>
             </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
             <div class="input-container">
                 <textarea 
                 type="text"
@@ -48,6 +52,7 @@
             ></textarea>
                 <label class="input-label" for="directions">Directions</label>
             </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
             <div class="input-container">
                 <input 
                 type="number"
@@ -60,6 +65,7 @@
             >
                 <label class="input-label" for="prep-time">Prep Time</label>
             </div>
+            <hr><hr><hr><hr><hr><hr>
             <div class="input-container">
                 <input 
                 type="number"
@@ -72,6 +78,7 @@
             >
                 <label class="input-label" for="cook-time">Cook Time</label>
             </div>
+            <br><br>
             <label>
                 Image:
                 <input type="file" required name="picture">
