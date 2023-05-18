@@ -101,5 +101,6 @@ async function deleteRecipe(req, res) {
             console.log('Image deleted successfully!');
         }
     });
+    console.log('hello');
     res.redirect('/recipes');
 }

@@ -3,16 +3,42 @@
 <h2><%= recipe.name %></h2>
 
 <h3>Ingredients:</h3>
-<p><%= recipe.ingredients %></p>
+<ul>
+    <% const newLineIng = recipe.ingredients.split('\r\n') %>
+    <% newLineIng.forEach(linebreak => { %>
+        <% if (linebreak !== '') {%>
+            <li><%= linebreak %></li>
+        <% } %>
+    <% }) %>
+</ul>
 
 <h3>Directions:</h3>
-<p><%= recipe.directions %></p>
+<ol>
+    <% const newLineDir = recipe.directions.split('\r\n') %>
+    <% newLineDir.forEach(linebreak => { %>
+        <% if (linebreak !== '') {%>
+            <li><%= linebreak %></li>
+        <% } %>
+    <% }) %>
+</ol>
 
 <h3>Prep Time:</h3>
-<p><%= recipe.prepTime %></p>
+<% function minToHourPrep(prepTime) { %>
+    <% const hours = Math.floor(prepTime / 60) %>
+    <% const mins = hours % 60 %>
+    <% const totalPrep = `${hours} hours ${mins} minutes`%>
+    <% return totalPrep %>
+<% } %>
+<p><%= minToHourPrep(recipe.prepTime) %></p>
 
 <h3>Cook Time:</h3>
-<p><%= recipe.cookTime %></p>
+<% function minToHourCook(cookTime) { %>
+    <% const hours = Math.floor(cookTime / 60) %>
+    <% const mins = hours % 60 %>
+    <% const totalCook = `${hours} hours ${mins} minutes`%>
+    <% return totalCook %>
+<% } %>
+<p><%= minToHourCook(recipe.cookTime) %></p>
 
 <h3>Image:</h3>
 <img src="/<%= recipe.picture %>" alt="<%= recipe.name %>">
