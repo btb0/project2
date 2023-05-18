@@ -1,38 +1,107 @@
 <%- include('../partials/header') %>
+<!-- The repetitive <br>'s and <hr>'s are temporary for spacing. Will fix later -->
 
-<section id="edit-recipe">
-    <form 
-        class="flex-cntr-col" 
-        id="edit-recipe-form" 
-        action="/recipes/<%= recipe._id %>?_method=PUT" 
-        enctype="multipart/form-data" 
-        method="POST"
-        >
-        <label>Recipe Name:
-            <input type="text" required name="name" value="<%= recipe.name %>">
-        </label>
-        <label>Ingredients:
-            <input type="text" required name="ingredients" value="<%= recipe.ingredients %>">
-        </label>
-        <label>Directions:
-            <input type="text" required name="directions" value="<%= recipe.directions %>">
-        </label>
-        <label>Prep Time:
-            <input type="number" required name="prepTime" value="<%= recipe.prepTime %>">
-        </label>
-        <label>Cook Time:
-            <input type="number" required name="cookTime" value="<%= recipe.cookTime %>">
-        </label>
-        <label>Image:
-            <input type="file" required name="picture" value="<%= recipe.picture %>">
-        </label>
-    </form>
-</section>
-<button 
-    type="submit" 
-    form="edit-recipe-form" 
-    id="edit-recipe-btn"
-    >Edit Recipe
-</button>
+<div class="new-recipe-panels">
+    <section id="new-recipe"> 
+        <div class="content-container">
+            <br><br>
+            <h1 class="new-edit-recipe-title all-recipes-title"><%= title %></h1>
+            <form 
+                id="edit-recipe-form" 
+                class="flex-cntr-col"
+                action="/recipes/<%= recipe._id %>?_method=PUT" 
+                enctype="multipart/form-data" 
+                method="POST"
+            >
+                <div class="input-container">
+                    <input 
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="off"
+                    placeholder=" "
+                    class="form-input"
+                    value="<%= recipe.name %>"
+                    required
+                >
+                    <label class="input-label" for="name">Recipe Name</label>
+                </div>
+                <hr><hr><hr><hr><hr><hr>
+                <div class="input-container">
+                    <textarea 
+                    type="text"
+                    id="ingredients"
+                    name="ingredients"
+                    autocomplete="off"
+                    placeholder=" "
+                    class="form-text-area"
+                    cols="81" rows="17"
+                    
+                    required
+                ><%= recipe.ingredients %></textarea>
+                    <label class="input-label" for="ingredients">Ingredients</label>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><hr><hr><hr><hr><hr>
+                <div class="input-container">
+                    <textarea 
+                    type="text"
+                    id="directions"
+                    name="directions"
+                    autocomplete="off"
+                    placeholder=" "
+                    class="form-text-area"
+                    cols="81" rows="17"
+                    required
+                ><%= recipe.directions %></textarea>
+                    <label class="input-label" for="directions">Directions</label>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><hr><hr><hr><hr><hr>
+                <div class="input-container">
+                    <input 
+                    type="number"
+                    id="prep-time"
+                    name="prepTime"
+                    autocomplete="off"
+                    placeholder="(in minutes)"
+                    class="form-input hide-arrow"
+                    value="<%= recipe.prepTime %>"
+                    required
+                >
+                    <label class="input-label" for="prep-time">Prep Time</label>
+                </div>
+                <hr><hr><hr><hr><hr><hr>
+                <div class="input-container">
+                    <input 
+                    type="number"
+                    id="cook-time"
+                    name="cookTime"
+                    autocomplete="off"
+                    placeholder="(in minutes)"
+                    class="form-input hide-arrow"
+                    value="<%= recipe.cookTime %>"
+                    required
+                >
+                    <label class="input-label" for="cook-time">Cook Time</label>
+                </div>
+                <br><br>
+                <label>
+                    Image:
+                    <input 
+                        type="file" 
+                        required name="picture"
+                        value="<%= recipe.picture %>"
+                    >
+                </label>
+            </form>
+            <button 
+                type="submit" 
+                form="edit-recipe-form" 
+                id="edit-recipe-btn" 
+                >Edit Recipe 
+            </button>
+        </div>
+    </section>
+</div>
+
 
 <%- include('../partials/footer') %>

@@ -141,6 +141,18 @@ nav {
   width: 15vmin;
 }
 
+.landing-btn:hover {
+  border: 2px solid var(--main-dark);
+  background-color: var(--main-dark);
+  color: var(--main-light);
+  text-decoration: none;
+  font-size: 2vmin;
+  letter-spacing: 1px;
+  padding: 5px;
+  text-align: center;
+  width: 15vmin;
+}
+
 .white-overlay {
   position: relative;
   /* border: 1px solid #000; */
@@ -212,9 +224,31 @@ nav {
 }
 
 /* -====== NEW RECIPE PAGE ======- */
+.new-recipe-panels {
+background-color: var(--main-light);
+}
 
-#new-recipe {
+.new-edit-recipe-title {
+  margin-top: 0;
+  font-size: 32px;
+  /* background-color: white;
+  margin: 0 auto;
+  border: 2px solid var(--main-dark);
+  width: 40vw; */
+  /* color: var(--main-dark); */
+  letter-spacing: 2.5px;
+}
+
+#new-recipe, #edit-recipe {
   background-color: var(--main-light);
+  background-color: white;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.content-container {
+  border-left: 52px solid var(--main-dark);
+  border-right: 52px solid var(--main-dark);
 }
 
 .input-container {
@@ -229,26 +263,30 @@ nav {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: transparent;
+  /* background: transparent; */
   border: 2px solid var(--main-dark);
   border-radius: 0.5em;
   outline: none;
-  color: var(--main-dark);
+  /* color: var(--main-dark); */
+  color: #000;
   font-family: 'Bitter', serif;
   padding-left: 1em;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
 }
 
 .form-text-area {
+  padding-top: 1em;
   position: absolute;
   resize: none;
   /* height: 100%; */
-  background: transparent;
+  /* background: transparent; */
   border: 2px solid var(--main-dark);
   border-radius: 0.5em;
   outline: none;
-  color: var(--main-dark);
+  color: #000;
   font-family: 'Bitter', serif;
   padding-left: 1em;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
 }
 
 .hide-arrow::-webkit-outer-spin-button,
@@ -278,7 +316,8 @@ nav {
 .input-label {
   position: absolute;
   color: var(--main-dark);
-  background: var(--main-light);
+  /* background: var(--main-light); */
+  background-color: #fff;
   font-family: 'Bitter', serif;
   left: 1em;
   top: 0.75em;
