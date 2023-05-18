@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300&display=swap');
 
 * {
   box-sizing: border-box;
   font-family: 'Cormorant', serif;
+  /* font-family: 'Bitter', serif; */
   /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
   /* border: 1px solid red; */
   margin: 0;
@@ -213,4 +215,56 @@ nav {
 
 #new-recipe {
   background-color: var(--main-light);
+}
+
+.input-container {
+  margin-top: 10px;
+  width: 90%;
+  max-width: 20em;
+  height: 2.5em;
+  position: relative;
+}
+
+.form-input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: 2px solid var(--main-dark);
+  border-radius: 0.5em;
+  outline: none;
+  color: var(--main-dark);
+  font-family: 'Bitter', serif;
+  padding-left: 1em;
+}
+
+.hide-arrow::-webkit-outer-spin-button,
+.hide-arrow::-webkit-inner-spin-button {
+  display: none;
+}
+
+.form-input:hover {
+  border: 2px solid rgba(131, 117, 107, 0.5);
+}
+
+.form-input:focus {
+  border: 2px solid var(--main-dark);
+}
+
+.form-input:focus ~ .input-label,
+.form-input:not(:placeholder-shown).form-input:not(:focus) ~ .input-label {
+  top: -0.5em;
+  font-size: 0.75em;
+  padding: 0 0.125em;
+}
+
+.input-label {
+  position: absolute;
+  color: var(--main-dark);
+  background: var(--main-light);
+  font-family: 'Bitter', serif;
+  left: 1em;
+  top: 0.75em;
+  cursor: text;
+  transition: top 350ms ease-in, font-size 350ms ease-in;
 }

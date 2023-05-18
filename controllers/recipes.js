@@ -30,19 +30,19 @@ async function create(req, res) {
         // Image Upload
         req.body.picture = req.file.path.replace('public/', '');
         // Removes controllers/ from absolute path
-        const removeCtrl = __dirname.replace('controllers', '');
-        const removeSpaces = req.body.name.replace(/\s+/g, '');
-        const oldPath = path.join(removeCtrl, 'public', req.body.picture);
-        const newPath = path.join(removeCtrl, 'public', removeSpaces)
-        // Renames image file in /uploads
-        fs.renameSync(oldPath, newPath, (err) => {
-            if (err) {
-                console.log('Error renaming image:', err);
-            } else {
-                console.log('Image renamed successfully!');
-            }
-        });
-        req.body.picture = newPath.split('/')[newPath.split('/').length - 1];
+        // const removeCtrl = __dirname.replace('controllers', '');
+        // const removeSpaces = req.body.name.replace(/\s+/g, '');
+        // const oldPath = path.join(removeCtrl, 'public', req.body.picture);
+        // const newPath = path.join(removeCtrl, 'public', removeSpaces)
+        // // Renames image file in /uploads
+        // fs.renameSync(oldPath, newPath, (err) => {
+        //     if (err) {
+        //         console.log('Error renaming image:', err);
+        //     } else {
+        //         console.log('Image renamed successfully!');
+        //     }
+        // });
+        // req.body.picture = 'uploads/' + newPath.split('/')[newPath.split('/').length - 1];
         await Recipe.create(req.body);
         res.redirect('recipes'); // CHANGE TO REDIRECT TO RECIPE DETAILS PAGE ONCE THAT IS ADDED
     } catch (err) {
