@@ -81,17 +81,18 @@
                     <label class="input-label" for="cook-time">Cook Time</label>
                 </div>
                 <br><br>
-                <label>
+                <label class="file-upload">
                     Image:
-                    <input type="file" required name="picture">
+                    <input id="upload" class="file-upload" type="file" required name="picture">
                 </label>
+                <button 
+                    type="submit" 
+                    form="new-recipe-form" 
+                    id="new-recipe-btn"
+                    class="add-btn"
+                >Add Recipe
+                </button>
             </form>
-            <button 
-                type="submit" 
-                form="new-recipe-form" 
-                id="new-recipe-btn"
-            >Add Recipe
-            </button>
         </div>
     </section>
 </div>

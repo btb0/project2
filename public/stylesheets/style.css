@@ -1,11 +1,17 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
 
 * {
   box-sizing: border-box;
-  /* font-family: 'Cormorant', serif; */
-  font-family: 'EB Garamond', serif;
+  font-family: 'Cormorant', serif;
+  /* font-family: 'Old Standard TT', serif; */
+  /* font-family: 'Nanum Myeongjo', serif; */
+  /* font-family: 'Raleway', sans-serif; */
+  /* font-family: 'EB Garamond', serif; */
   /* font-family: 'Bitter', serif; */
   /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
   /* border: 1px solid red; */
@@ -180,9 +186,6 @@ nav {
 }
 
 /* -========= Recipe Index Page (All Recipes) ==========- */
-/* .recipes-idx-container {
-
-} */
 
 .all-recipes-title {
   text-align: center;
@@ -193,7 +196,7 @@ nav {
 .display-container {
   display: inline-block;
   box-shadow : 3px 3px 5px 0px rgba(0,0,0,0.5);
-  height: 390px;
+  height: 380px;
   width: 360px;
   margin: 3vmin;
 }
@@ -202,6 +205,7 @@ nav {
   height: 360px;
   width: 360px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -210,10 +214,12 @@ nav {
   height: 325px;
   width: 325px;
   background-color: #000;
+  overflow: hidden;
 }
 
 .opacity-layer h3 {
-  margin-top: 7px;
+  position: absolute !important;
+  font-size: 16px;
 }
 
 #food-img {
@@ -226,7 +232,8 @@ nav {
 }
 
 #food-img:hover {
-  opacity: .4;
+  opacity: .8;
+  transform: scale(1.05);
 }
 
 /* -====== NEW RECIPE PAGE ======- */
@@ -333,4 +340,54 @@ background-color: var(--main-light);
 
 .form-input, .form-text-area, .input-label {
   margin: 15px 0;
+}
+
+.file-upload {
+  font-family: 'Bitter', serif;
+  margin-right: 5%;
+  margin-left: -22.5%;
+}
+
+.add-btn {
+  border: 2px solid var(--main-dark);
+  background-color: var(--main-light);
+  color: var(--main-dark);
+  text-decoration: none;
+  font-size: 2vmin;
+  letter-spacing: 1px;
+  padding: 5px;
+  text-align: center;
+  width: 15vmin;
+  border-radius: 0.5em;
+  margin: 0.5% 0 3% 0;
+  font-family: 'Bitter', serif;
+  font-size: 16px;
+}
+
+.add-btn:hover {
+  border: 2px solid var(--main-dark);
+  background-color: var(--main-dark);
+  color: var(--main-light);
+}
+
+#upload::-webkit-file-upload-button {
+  border: 1px solid #000;
+  background-color: white;
+  color: #000;
+  text-decoration: none;
+  font-size: 2vmin;
+  letter-spacing: 1px;
+  padding: 5px;
+  text-align: center;
+  width: 10vmin;
+  border-radius: 0.5em;
+  margin: 2% 2% 3% 30%;
+  font-family: 'Bitter', serif;
+  font-size: 12px;
+}
+
+#upload::-webkit-file-upload-button:hover {
+  border: 1px solid var(--main-dark);
+  background-color: var(--main-dark);
+  color: var(--main-light);
 }
