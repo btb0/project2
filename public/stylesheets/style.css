@@ -220,7 +220,7 @@ nav {
 .input-container {
   margin-top: 10px;
   width: 90%;
-  max-width: 20em;
+  max-width: 40.1em;
   height: 2.5em;
   position: relative;
 }
@@ -238,21 +238,38 @@ nav {
   padding-left: 1em;
 }
 
+.form-text-area {
+  position: absolute;
+  resize: none;
+  height: 100%;
+  background: transparent;
+  border: 2px solid var(--main-dark);
+  border-radius: 0.5em;
+  outline: none;
+  color: var(--main-dark);
+  font-family: 'Bitter', serif;
+  padding-left: 1em;
+}
+
 .hide-arrow::-webkit-outer-spin-button,
 .hide-arrow::-webkit-inner-spin-button {
   display: none;
 }
 
+.form-text-area:hover,
 .form-input:hover {
   border: 2px solid rgba(131, 117, 107, 0.5);
 }
 
+.form-text-area:focus,
 .form-input:focus {
   border: 2px solid var(--main-dark);
 }
 
-.form-input:focus ~ .input-label,
-.form-input:not(:placeholder-shown).form-input:not(:focus) ~ .input-label {
+.form-input:focus~.input-label,
+.form-text-area:focus~.input-label,
+.form-input:not(:placeholder-shown).form-input:not(:focus)~.input-label,
+.form-text-area:not(:placeholder-shown).form-text-area:not(:focus)~.input-label {
   top: -0.5em;
   font-size: 0.75em;
   padding: 0 0.125em;
