@@ -23,22 +23,24 @@
 </ol>
 
 <h3>Prep Time:</h3>
-<% function minToHourPrep(prepTime) { %>
+<p><%= minToHour(recipe.prepTime) %></p>
+<!-- <% function minToHourPrep(prepTime) { %>
     <% const hours = Math.floor(prepTime / 60) %>
     <% const mins = hours % 60 %>
     <% const totalPrep = `${hours} hours ${mins} minutes`%>
     <% return totalPrep %>
 <% } %>
-<p><%= minToHourPrep(recipe.prepTime) %></p>
+<p><%= minToHourPrep(recipe.prepTime) %></p> -->
 
 <h3>Cook Time:</h3>
-<% function minToHourCook(cookTime) { %>
+<p><%= minToHour(recipe.cookTime) %></p>
+<!-- <% function minToHourCook(cookTime) { %>
     <% const hours = Math.floor(cookTime / 60) %>
     <% const mins = hours % 60 %>
     <% const totalCook = `${hours} hours ${mins} minutes`%>
     <% return totalCook %>
 <% } %>
-<p><%= minToHourCook(recipe.cookTime) %></p>
+<p><%= minToHourCook(recipe.cookTime) %></p> -->
 
 <h3>Image:</h3>
 <img src="/<%= recipe.picture %>" alt="<%= recipe.name %>">

@@ -55,7 +55,7 @@ async function create(req, res) {
 async function show(req, res) {
     const recipe = await Recipe.findById(req.params.id);
     // displays the property values of the specific recipe
-    res.render('recipes/show', { title: 'Recipe Details', recipe });
+    res.render('recipes/show', { title: 'Recipe Details', recipe, minToHour });
 }
 
 async function edit(req, res) {
@@ -101,6 +101,13 @@ async function deleteRecipe(req, res) {
             console.log('Image deleted successfully!');
         }
     });
-    console.log('hello');
     res.redirect('/recipes');
+}
+
+// EJS Helper Function - don't export
+function minToHour(time) {
+    const hours = Math.floor(time / 60);
+    const mins = time % 60;
+    const hoursMins = hours === 0 ? `${mins} mins` : `${hours} hours ${mins} mins`;
+    return hoursMins
 }

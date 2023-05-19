@@ -1,18 +1,20 @@
 <%- include('../partials/header') %>
 
-<h1 class="all-recipes-title"><%= title %></h1>
+<div class="wrapper">
+    <h1 class="all-recipes-title"><%= title %></h1>
 
-<section class="recipes-idx-container">
-    <% recipes.forEach(function(r) { %>
-        <div class="display-container">
-            <figure class="recipe-display">
-                <div class="opacity-layer">
-                    <a href="/recipes/<%= r._id %>"><img id="food-img" src="<%= r.picture %>" alt="<%= r.name %>"></a>
-                    <h3><%= r.name %></h3>
-                </div>
-            </figure>
-        </div>
-    <% }) %>
-</section>
+    <div class="recipes-idx-container">
+        <% recipes.forEach(function(r) { %>
+            <div class="display-container">
+                <figure class="recipe-display">
+                    <div class="opacity-layer">
+                        <a href="/recipes/<%= r._id %>"><img id="food-img" src="<%= r.picture %>" alt="<%= r.name %>"></a>
+                        <h3><%= r.name %></h3>
+                    </div>
+                </figure>
+            </div>
+        <% }) %>
+    </div>
+</div>
 
 <%- include('../partials/footer') %>

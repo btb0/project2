@@ -201,12 +201,26 @@ nav {
   margin-bottom: 1.5vmin;
 }
 
+.recipes-idx-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 1600px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .display-container {
   display: inline-block;
   box-shadow : 3px 3px 5px 0px rgba(0,0,0,0.5);
   height: 380px;
   width: 360px;
-  margin: 3vmin;
+  margin: 2.2vmin;
 }
 
 .recipe-display {
