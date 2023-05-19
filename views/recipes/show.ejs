@@ -7,11 +7,11 @@
                 <h2 class="show-title"><%= recipe.name %></h2>
 
                 <div class="show-time">
-                    <h3>Prep Time:</h3>
-                    <p><%= minToHour(recipe.prepTime) %></p>
+                    <h3 class="ptime">Prep Time:</h3>
+                    <p id="ptime-p" class="ptime"><%= minToHour(recipe.prepTime) %></p>
 
-                    <h3>Cook Time:</h3>
-                    <p><%= minToHour(recipe.cookTime) %></p>
+                    <h3 class="ctime">Cook Time:</h3>
+                    <p id="ctime-p" class="ctime"><%= minToHour(recipe.cookTime) %></p>
                 </div>
 
                 <div class="show-ingredients">
@@ -91,9 +91,9 @@
                 <div class="show-add-review">
                     <% if (user) { %>
                         <h3>Leave a Review:</h3>
-                        <form action="/recipes/<%= recipe.id %>/reviews" method="POST">
-                            <textarea name="content" cols="60" rows="10" required></textarea>
-                            <label>Rating:
+                        <form id="review-form" action="/recipes/<%= recipe.id %>/reviews" method="POST">
+                            <textarea class="review-textarea" name="content" cols="80" rows="10" required></textarea>
+                            <label id="rating-label">Rating:
                                 <select name="rating">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -102,7 +102,7 @@
                                     <option value="5" selected>5</option>
                                 </select>
                             </label>
-                            <button type="submit">Submit Review</button>
+                            <button id="submit-review-btn" type="submit">Submit Review</button>
                         </form>
                     <% } %>
                 </div>
