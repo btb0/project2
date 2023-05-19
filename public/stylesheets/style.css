@@ -78,6 +78,16 @@ nav {
   transform: scaleX(1);
 }
 
+.site-header {
+  flex: 1;
+  margin-left: 25px;
+  font-size: 32px;
+  /* font-family: 'Cormorant', serif; */
+  /* font-family: 'Clicker Script', cursive; */
+  letter-spacing: 5px;
+  justify-content: flex-start !important;
+}
+
 /* -========= Landing Page =========- */
 .home-section {
   /* outline: 1px solid red; */
