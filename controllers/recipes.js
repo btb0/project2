@@ -45,7 +45,7 @@ async function create(req, res) {
         });
         req.body.picture = 'uploads/' + newPath.split('/')[newPath.split('/').length - 1];
         await Recipe.create(req.body);
-        res.redirect('recipes'); // CHANGE TO REDIRECT TO RECIPE DETAILS PAGE ONCE THAT IS ADDED
+        res.redirect('recipes');ß
     } catch (err) {
         console.log(err);
         res.render('recipes/new', { errorMsg: 'failed to add recipe ):'});
@@ -66,28 +66,13 @@ async function edit(req, res) {
 
 async function update(req, res) {
     try {
-        console.log(req.body)
         const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        console.log(recipe)
         res.redirect(`/recipes/${recipe._id}`);
     } catch (err) {
         console.log(err);
         res.render('recipes/show', { errorMsg: 'failed to edit recipe ):'});
     }
 }
-
-// async function update(req, res) {
-//     const recipe = await Recipe.findById(req.params.id);
-//     try {
-//         // recipe is the target, req.body is the source (what was edited)
-//         Object.assign(recipe, req.body);
-//         await recipe.save();
-//     } catch (err) {
-//         console.log(err);
-//         res.render('recipes/show', { errorMsg: 'failed to edit recipe ):'});
-//     }
-//     res.redirect(`/recipes/${recipe._id}`);
-// }
 
 async function deleteRecipe(req, res) {
     const recipe = await Recipe.findByIdAndDelete(req.params.id);

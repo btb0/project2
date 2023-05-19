@@ -2,7 +2,6 @@
   box-sizing: border-box;
   font-family: 'Crimson Pro', serif;
   margin: 0;
-  /* border: 1px solid red; */
 }
 
 :root {
@@ -12,7 +11,6 @@
 
 body {
   margin: 0;
-  /* overflow-x: hidden;  */
   display: grid;
   grid-template-rows: 10vh 1fr;
   grid-template-areas:
@@ -67,7 +65,6 @@ nav {
 
 /* -========= Landing Page =========- */
 .home-section {
-  /* outline: 1px solid red; */
   height: 84vmin;
   margin-top: 2.75vmin;
   display: flex;
@@ -81,8 +78,6 @@ nav {
   display: flex;
   height: 81vmin;
   justify-content: flex-end;
-  /* border: 1px solid black; */
-  /* margin-left: 4.75vmin; */
   width: 55vw;
 }
 
@@ -120,7 +115,6 @@ nav {
   justify-content: center;
   margin-left: 2vw;
   height: 25vh;
-  /* border: 1px solid black; */
 }
 
 .landing-text h1 {
@@ -158,7 +152,6 @@ nav {
 
 .white-overlay {
   position: relative;
-  /* border: 1px solid #000; */
   width: 100vw;
   height: 10vh;
   margin-top: -6.8vh;
@@ -210,7 +203,6 @@ nav {
   height: 380px;
   width: 360px;
   margin: 15px;
-  /* margin: 2.2vmin; */
 }
 
 .recipe-display {
@@ -256,11 +248,6 @@ background-color: var(--main-light);
 .new-edit-recipe-title {
   margin-top: 0;
   font-size: 32px;
-  /* background-color: white;
-  margin: 0 auto;
-  border: 2px solid var(--main-dark);
-  width: 40vw; */
-  /* color: var(--main-dark); */
   letter-spacing: 2.5px;
 }
 
@@ -288,11 +275,9 @@ background-color: var(--main-light);
   position: absolute;
   height: 100%;
   width: 100%;
-  /* background: transparent; */
   border: 2px solid var(--main-dark);
   border-radius: 0.5em;
   outline: none;
-  /* color: var(--main-dark); */
   color: #000;
   font-family: 'Bitter', serif;
   padding-left: 1em;
@@ -303,8 +288,6 @@ background-color: var(--main-light);
   padding-top: 1em;
   position: absolute;
   resize: none;
-  /* height: 100%; */
-  /* background: transparent; */
   border: 2px solid var(--main-dark);
   border-radius: 0.5em;
   outline: none;
@@ -341,7 +324,6 @@ background-color: var(--main-light);
 .input-label {
   position: absolute;
   color: var(--main-dark);
-  /* background: var(--main-light); */
   background-color: #fff;
   font-family: 'Bitter', serif;
   left: 1em;
@@ -414,19 +396,8 @@ background-color: var(--main-light);
 
 .show-container {
   background-color: var(--main-light);
-  /* border-radius: 1.5em; */
   margin: 5vh auto 5vh auto;
   width: 80vw;
-  /* border: 1px solid red; */
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: .12fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: 
-  "recipe recipe recipe"
-  "ingredients time image"
-  "uploader directions directions"
-  "reviews reviews reviews"
-  ". addReview ."; */
 }
 
 .div-style {
@@ -438,7 +409,6 @@ background-color: var(--main-light);
 .show-inner-container {
   width: 75vw;
   margin: 0 auto;
-  /* border: 1px solid red; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: .12fr .02fr 1fr;
@@ -451,7 +421,6 @@ background-color: var(--main-light);
 .show-inner-container2 {
   width: 75vw;
   margin: 0 auto;
-  /* border: 1px solid red; */
   display: grid;
   grid-template-columns: .925fr 1fr 1fr;
   grid-template-rows: 2.25fr .65fr .2fr .2fr;
@@ -674,7 +643,6 @@ background-color: var(--main-light);
 .review-textarea {
   padding-top: 1em;
   resize: none;
-  /* height: 100%; */
   background: transparent;
   border: 1px solid var(--main-dark);
   border-radius: 0.3em;
@@ -716,7 +684,6 @@ background-color: var(--main-light);
 
 .show-recipe-display {
   height: 550px;
-  /* background-color: white; */
   width: 550px;
   display: flex;
   flex-direction: column;
@@ -743,7 +710,6 @@ select[name=rating] {
 .show-opacity-layer {
   height: 510px;
   width: 510px;
-  /* border: .1px solid black; */
   background-color: #000;
   overflow: hidden;
 }
@@ -755,5 +721,4 @@ select[name=rating] {
 
 .show-recipe-display, .show-opacity-layer, .show-display-container, .show-image {
   margin-top: -0.1px;
-  /* margin-left: 50px; */
 }

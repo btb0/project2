@@ -24,7 +24,7 @@ tastee. utilizes Google OAuth to provide basic authentication giving users acces
 - GitHub
 
 ## Getting Started
-The website can be found here:
+The website can be found here: https://tastee-410.herokuapp.com/
 
 All you need to do is click login at the top right corner, and that will give you access to being able to upload recipes, review other recipes(or if you really wanted to, your own recipe), edit/delete your own recipes, and save recipes to your profile page.
 
