@@ -37,10 +37,11 @@
                         </div>
                 <!-- </div> -->
                 <!-- <img class="show-image" src="/<%= recipe.picture %>" alt="<%= recipe.name %>"> -->
-
+            </div>   
+            <div class="show-inner-container2">       
                 <div class="recipe-uploader">
-                    <h3>Recipe Uploader:</h3>
-                    <img src="<%= recipe.userAvatar %>" alt="Uploader">
+                    <h3>Uploaded by:</h3>
+                    <img id="upload-user-pfp" src="<%= recipe.userAvatar %>" alt="Uploader">
                     <h4><%= recipe.userName %></h4>
                 </div>
 
@@ -61,10 +62,10 @@
                     <h3>Reviews:</h3>
                     <table>
                         <tr>
-                            <th>User:</th>
-                            <th>Date:</th>
-                            <th>Review:</th>
-                            <th>Rating:</th>
+                            <th class="reviews-th">User:</th>
+                            <th class="reviews-th">Date:</th>
+                            <th class="reviews-th">Review:</th>
+                            <th class="reviews-th">Rating:</th>
                             <th></th>
                         </tr>
                             <% recipe.reviews.forEach(function(review) { %>
@@ -72,12 +73,12 @@
                                     <td><%= review.userName %></td>
                                     <td><%= review.createdAt.toLocaleDateString() %></td>
                                     <td><%= review.content %></td>
-                                    <td><%= review.rating %></td>
+                                    <td class="rating"><%= review.rating %></td>
                                     <td>
                                         <!-- Does not display delete button if the review does not belong to the signed in user -->
                                         <% if (user?._id.equals(review.user)) { %>
                                             <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST">
-                                                <button type="submit">X</button>
+                                                <button class="review-delete" type="submit">X</button>
                                             </form>
                                         <% } %>
                                     </td>
@@ -111,7 +112,7 @@
                 <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
                     <button type="submit">delete</button>
                 </form>
-            </div>
+            </div> 
         </div>
     </div>
 </div>
