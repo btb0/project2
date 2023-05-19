@@ -1,104 +1,119 @@
 <%- include('../partials/header') %>
 
-<h2><%= recipe.name %></h2>
+<div class="show-wrapper">
+    <div class="show-container">
+        <div class="div-style">
+            <div class="show-inner-container">
+                <h2 class="show-title"><%= recipe.name %></h2>
 
-<h3>Ingredients:</h3>
-<ul>
-    <% const newLineIng = recipe.ingredients.split('\r\n') %>
-    <% newLineIng.forEach(linebreak => { %>
-        <% if (linebreak !== '') {%>
-            <li><%= linebreak %></li>
-        <% } %>
-    <% }) %>
-</ul>
+                <div class="show-time">
+                    <h3>Prep Time:</h3>
+                    <p><%= minToHour(recipe.prepTime) %></p>
 
-<h3>Directions:</h3>
-<ol>
-    <% const newLineDir = recipe.directions.split('\r\n') %>
-    <% newLineDir.forEach(linebreak => { %>
-        <% if (linebreak !== '') {%>
-            <li><%= linebreak %></li>
-        <% } %>
-    <% }) %>
-</ol>
+                    <h3>Cook Time:</h3>
+                    <p><%= minToHour(recipe.cookTime) %></p>
+                </div>
 
-<h3>Prep Time:</h3>
-<p><%= minToHour(recipe.prepTime) %></p>
-<!-- <% function minToHourPrep(prepTime) { %>
-    <% const hours = Math.floor(prepTime / 60) %>
-    <% const mins = hours % 60 %>
-    <% const totalPrep = `${hours} hours ${mins} minutes`%>
-    <% return totalPrep %>
-<% } %>
-<p><%= minToHourPrep(recipe.prepTime) %></p> -->
+                <div class="show-ingredients">
+                    <h3 id="ingredients-text">Ingredients:</h3>
+                    <ul>
+                        <% const newLineIng = recipe.ingredients.split('\r\n') %>
+                        <% newLineIng.forEach(linebreak => { %>
+                            <% if (linebreak !== '') {%>
+                                <li><%= linebreak %></li>
+                            <% } %>
+                        <% }) %>
+                    </ul>
+                </div>
 
-<h3>Cook Time:</h3>
-<p><%= minToHour(recipe.cookTime) %></p>
-<!-- <% function minToHourCook(cookTime) { %>
-    <% const hours = Math.floor(cookTime / 60) %>
-    <% const mins = hours % 60 %>
-    <% const totalCook = `${hours} hours ${mins} minutes`%>
-    <% return totalCook %>
-<% } %>
-<p><%= minToHourCook(recipe.cookTime) %></p> -->
+                <!-- <h3>Image:</h3> -->
+                <!-- <div class="recipes-idx-container"> -->
+                        <div class="show-display-container">
+                            <figure class="show-recipe-display">
+                                <div class="show-opacity-layer">
+                                    <img class="show-image" src="/<%= recipe.picture %>" alt="<%= recipe.name %>">
+                                </div>
+                            </figure>
+                        </div>
+                <!-- </div> -->
+                <!-- <img class="show-image" src="/<%= recipe.picture %>" alt="<%= recipe.name %>"> -->
 
-<h3>Image:</h3>
-<img src="/<%= recipe.picture %>" alt="<%= recipe.name %>">
+                <div class="recipe-uploader">
+                    <h3>Recipe Uploader:</h3>
+                    <img src="<%= recipe.userAvatar %>" alt="Uploader">
+                    <h4><%= recipe.userName %></h4>
+                </div>
 
-<h3>Recipe Uploader:</h3>
-<img src="<%= recipe.userAvatar %>" alt="Uploader">
-<h4><%= recipe.userName %></h4>
+                <div class="show-directions">
+                    <h3>Directions:</h3>
+                    <ol>
+                        <% const newLineDir = recipe.directions.split('\r\n') %>
+                        <% newLineDir.forEach(linebreak => { %>
+                            <% if (linebreak !== '') {%>
+                                <li><%= linebreak %></li>
+                            <% } %>
+                        <% }) %>
+                    </ol>
+                </div>
 
-<!-- ADD REVIEW FORM -->
-<% if (user) { %>
-    <h3>Leave a Review:</h3>
-    <form action="/recipes/<%= recipe.id %>/reviews" method="POST">
-        <textarea name="content" cols="60" rows="10" required></textarea>
-        <label>Rating:
-            <select name="rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5" selected>5</option>
-            </select>
-        </label>
-        <button type="submit">Submit Review</button>
-    </form>
-<% } %>
+                <!-- LIST OF ALL REVIEWS -->
+                <div class="show-reviews">
+                    <h3>Reviews:</h3>
+                    <table>
+                        <tr>
+                            <th>User:</th>
+                            <th>Date:</th>
+                            <th>Review:</th>
+                            <th>Rating:</th>
+                            <th></th>
+                        </tr>
+                            <% recipe.reviews.forEach(function(review) { %>
+                                <tr>
+                                    <td><%= review.userName %></td>
+                                    <td><%= review.createdAt.toLocaleDateString() %></td>
+                                    <td><%= review.content %></td>
+                                    <td><%= review.rating %></td>
+                                    <td>
+                                        <!-- Does not display delete button if the review does not belong to the signed in user -->
+                                        <% if (user?._id.equals(review.user)) { %>
+                                            <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST">
+                                                <button type="submit">X</button>
+                                            </form>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                    </table>
+                </div>
 
-<!-- LIST OF ALL REVIEWS -->
-<h3>Reviews:</h3>
-<table>
-    <tr>
-        <th>User:</th>
-        <th>Date:</th>
-        <th>Review:</th>
-        <th>Rating:</th>
-        <th></th>
-    </tr>
-        <% recipe.reviews.forEach(function(review) { %>
-            <tr>
-                <td><%= review.userName %></td>
-                <td><%= review.createdAt.toLocaleDateString() %></td>
-                <td><%= review.content %></td>
-                <td><%= review.rating %></td>
-                <td>
-                    <!-- Does not display delete button if the review does not belong to the signed in user -->
-                    <% if (user?._id.equals(review.user)) { %>
-                        <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST">
-                            <button type="submit">X</button>
+                <!-- ADD REVIEW FORM -->
+                <div class="show-add-review">
+                    <% if (user) { %>
+                        <h3>Leave a Review:</h3>
+                        <form action="/recipes/<%= recipe.id %>/reviews" method="POST">
+                            <textarea name="content" cols="60" rows="10" required></textarea>
+                            <label>Rating:
+                                <select name="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5" selected>5</option>
+                                </select>
+                            </label>
+                            <button type="submit">Submit Review</button>
                         </form>
                     <% } %>
-                </td>
-            </tr>
-        <% }) %>
-</table>
+                </div>
 
-<a href="/recipes/<%= recipe.id %>/edit">Edit</a>
- |
-<form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
-    <button type="submit">delete</button>
-</form>
+                <a href="/recipes/<%= recipe.id %>/edit">Edit</a>
+
+                <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+                    <button type="submit">delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%- include('../partials/footer') %>
