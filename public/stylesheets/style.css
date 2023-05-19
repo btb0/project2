@@ -415,7 +415,7 @@ background-color: var(--main-light);
 .show-container {
   background-color: var(--main-light);
   /* border-radius: 1.5em; */
-  margin: 5vh auto 0 auto;
+  margin: 5vh auto 5vh auto;
   width: 80vw;
   /* border: 1px solid red; */
   /* display: grid;
@@ -591,6 +591,12 @@ background-color: var(--main-light);
 .show-reviews table {
   margin-top: 10px;
   font-size: 16px;
+}
+
+#no-reviews {
+  font-size: 16px;
+  margin-bottom: 15px;
+  margin-left: 3.1px;
 }
 
 .reviews-th {

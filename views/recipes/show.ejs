@@ -28,13 +28,13 @@
 
                 <!-- <h3>Image:</h3> -->
                 <!-- <div class="recipes-idx-container"> -->
-                        <div class="show-display-container">
-                            <figure class="show-recipe-display">
-                                <div class="show-opacity-layer">
-                                    <img class="show-image" src="/<%= recipe.picture %>" alt="<%= recipe.name %>">
-                                </div>
-                            </figure>
+                <div class="show-display-container">
+                    <figure class="show-recipe-display">
+                        <div class="show-opacity-layer">
+                            <img class="show-image" src="/<%= recipe.picture %>" alt="<%= recipe.name %>">
                         </div>
+                    </figure>
+                </div>
                 <!-- </div> -->
                 <!-- <img class="show-image" src="/<%= recipe.picture %>" alt="<%= recipe.name %>"> -->
             </div>   
@@ -60,6 +60,7 @@
                 <!-- LIST OF ALL REVIEWS -->
                 <div class="show-reviews">
                     <h3>Reviews:</h3>
+                    <% if (recipe.reviews.length) { %>
                     <table>
                         <tr>
                             <th class="reviews-th">User:</th>
@@ -86,6 +87,9 @@
                             <% }) %>
                     </table>
                 </div>
+                <% } else { %>
+                    <p id="no-reviews">no reviews yet ):</p>
+                <% } %>
 
                 <!-- ADD REVIEW FORM -->
                 <div class="show-add-review">
@@ -107,11 +111,12 @@
                     <% } %>
                 </div>
                 <div class="bottom-buttons">
-                    <a id="edit-rev-btn" class="edit-delete" href="/recipes/<%= recipe.id %>/edit">Edit</a>
-
-                    <form class="del-form" action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
-                        <button id="del-rev-btn" class="edit-delete" type="submit">delete</button>
-                    </form>
+                    <% if (user?._id.equals(recipe.user)) { %>
+                        <a id="edit-rev-btn" class="edit-delete" href="/recipes/<%= recipe.id %>/edit">Edit</a>
+                        <form class="del-form" action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+                            <button id="del-rev-btn" class="edit-delete" type="submit">delete</button>
+                        </form>
+                    <% } %>
                 </div>
             </div> 
         </div>
