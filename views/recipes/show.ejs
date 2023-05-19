@@ -106,12 +106,13 @@
                         </form>
                     <% } %>
                 </div>
+                <div class="bottom-buttons">
+                    <a id="edit-rev-btn" class="edit-delete" href="/recipes/<%= recipe.id %>/edit">Edit</a>
 
-                <a href="/recipes/<%= recipe.id %>/edit">Edit</a>
-
-                <form action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
-                    <button type="submit">delete</button>
-                </form>
+                    <form class="del-form" action="/recipes/<%= recipe.id %>?_method=DELETE" method="POST">
+                        <button id="del-rev-btn" class="edit-delete" type="submit">delete</button>
+                    </form>
+                </div>
             </div> 
         </div>
     </div>
