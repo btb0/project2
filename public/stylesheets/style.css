@@ -219,7 +219,7 @@ nav {
 
 .display-container {
   display: inline-block;
-  box-shadow : 3px 3px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: rgba(50, 50, 93, 0.75) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   height: 380px;
   width: 360px;
   margin: 15px;
@@ -524,7 +524,7 @@ background-color: var(--main-light);
 
 .show-display-container {
   display: inline-block;
-  box-shadow : 3px 3px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: rgba(50, 50, 93, 0.75) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   height: 550px;
   width: 550px;
   margin: 2.2vmin;
