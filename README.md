@@ -47,7 +47,7 @@ Things I would like to add in the future are:
 - I would like to add a search bar that allows users to search for different keywords that would help them find certain recipes faster. Additionally I would like to add the ability to sort the recipes. Whether it be by the type of food, or by the date the recipe was uploaded.
 
 
-#### Search / Sort Functionality
+#### Implement an API
 
 - I would like to implement some sort of API to the site. I was thinking about using some sort of API if it exists to fetch different recipes at random, allowing the user to find random recipes if they're feeling adventurous.  
 
